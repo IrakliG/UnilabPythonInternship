@@ -1,7 +1,12 @@
 import math
 
-def numsqrf(a):
-    b=math.sqrt(a)
-    print(int(b))
+from myapp import app
 
-numsqrf(int(input('enter the number please ')))
+
+@app.route('/absolute/<int:a>', methods=['POST'])
+def absolute(a):
+    return(f"the absolute value of {a} is {math.fabs(a)}")
+
+
+if __name__ == '__main__':
+    print(absolute(int(input("Please input the number: "))))
